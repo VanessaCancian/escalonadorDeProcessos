@@ -8,6 +8,13 @@ package com.escalonador.model;
  *
  */
 public class Processo {
+	private int tamanhoProcesso;
+	private int prioridadeProcesso;
+	private int idProcesso;
+	
+	public Processo(){
+		
+	}
 	
 
 }
