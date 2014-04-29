@@ -3,7 +3,7 @@
  */
 package com.escalonador.controller;
 
-import com.escalonador.model.Processo;
+import com.escalonador.model.*;
 import com.escalonador.view.Console;
 
 /**
@@ -12,16 +12,17 @@ import com.escalonador.view.Console;
  */
 public class Controller {
 	Console console;
-	FilaDeProcessos filaDeProcessos;
 	EscalonadorFIFO escalonadorFifo;
+	private ListaEncadeada<Processo> filaDeProcessos;
 
 	public Controller() {
+		filaDeProcessos = new ListaEncadeada<Processo>();
 		console = new Console();
-		filaDeProcessos = new FilaDeProcessos();
 		Processo proc1 = new Processo(1, 10, 4);
 		Processo proc2 = new Processo(2, 4, 4);
-		filaDeProcessos.getFila().add(proc1);
-		filaDeProcessos.getFila().add(proc2);
+		Nodo<Processo> proc1 = new Nodo<Processo>(proc1);
+		//filaDeProcessos.getFila().append(novo);
+		//filaDeProcessos.getFila().add(proc2);
 		escalonadorFifo = new EscalonadorFIFO(filaDeProcessos);
 		
 	}

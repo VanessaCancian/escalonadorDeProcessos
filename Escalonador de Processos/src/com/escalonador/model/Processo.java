@@ -8,7 +8,7 @@ package com.escalonador.model;
  * 
  */
 public class Processo {
-	private int tempoExecucao;
+	private int totalExecucao;
 	private int prioridadeExecucao;
 	private int idProcesso;
 	private long horaEntrada;
@@ -21,7 +21,7 @@ public class Processo {
 	public Processo(int pid, int tempoExecucao, int prioridadeExecucao) {
 		this.idProcesso = pid;
 		terminou = false;
-		this.tempoExecucao = tempoExecucao;
+		setTotalExecucao(0);
 		this.cicloExecucao = tempoExecucao;
 		this.prioridadeExecucao = prioridadeExecucao;
 		this.horaEntrada = System.currentTimeMillis();
@@ -33,10 +33,16 @@ public class Processo {
 			try {
 				Thread.sleep(1000);
 				cicloExecucao--;
-				System.out.println("Processo :" + getPid() + "Executou uma unidade de tempo \n");
+				setTotalExecucao(getTotalExecucao() + 1);
+				System.out.println("Processo :" + getPid()
+						+ " Executou uma unidade de tempo \n");
 				if (cicloExecucao == 0) {
 					setTerminou();
-					System.out.println("Processo: " + getPid() + "Terminou. Tempo total de execucao: " + getDataTerminou());
+					System.out.println("Processo: " + getPid()
+							+ " Terminou. Tempo total de execucao: "
+							+ getTotalExecucao()
+							+ " Tempo desde que o processo entrou na fila: "
+							+ getDataTerminou());
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -60,6 +66,14 @@ public class Processo {
 
 	public boolean getTerminou() {
 		return terminou;
+	}
+
+	public int getTotalExecucao() {
+		return totalExecucao;
+	}
+
+	public void setTotalExecucao(int totalExecucao) {
+		this.totalExecucao = totalExecucao;
 	}
 
 }

@@ -1,27 +1,30 @@
 package com.escalonador.controller;
 
-import java.util.LinkedList;
-
+import com.escalonador.model.ListaEncadeada;
+import com.escalonador.model.Nodo;
 import com.escalonador.model.Processo;
 
 public class EscalonadorFIFO {
-	private FilaDeProcessos filaDeProcessos;
-	private LinkedList<Processo> filaProcessos;
+	private ListaEncadeada<Processo> filaDeProcessos;
+	private ListaEncadeada<Processo> filaProcessos;
 	private Processo processoExecutando;
 
-	public EscalonadorFIFO(FilaDeProcessos filaDeProcessos2) {
-		this.filaDeProcessos = filaDeProcessos2;
-		this.filaProcessos = filaDeProcessos.getFila();
-
+	public EscalonadorFIFO(ListaEncadeada<Processo> filaDeProcessos2) {
+		this.filaProcessos = filaDeProcessos2;
 	}
 
 	public void executarFila() {
-		while(filaProcessos.size() > 0){
-			processoExecutando = filaProcessos.getFirst();
+		while (filaProcessos.getHead() != null) {
+			Nodo NodoProcessoExecutando = filaProcessos.getHead();
+			processoExecutando = (Processo) NodoProcessoExecutando.getChave();
+			processoExecutando.executarProcesso();
+
 			while (!processoExecutando.getTerminou()) {
 				processoExecutando.executarProcesso();
+
 			}
-			filaProcessos.removeFirst();
+			filaProcessos.remove(NodoProcessoExecutando);
+			;
 		}
 	}
 
