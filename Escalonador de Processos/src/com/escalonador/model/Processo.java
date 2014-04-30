@@ -3,6 +3,8 @@
  */
 package com.escalonador.model;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author daniel.fraga
  * 
@@ -76,15 +78,15 @@ public class Processo implements Comparable<Processo> {
 	}
 
 	private long getDataTerminou() {
-		return horaTermino;
+		return TimeUnit.MILLISECONDS.toSeconds(horaTermino);
 	}
 
 	public boolean getTerminou() {
 		return terminou;
 	}
-
 	public int getTotalExecucao() {
 		return totalExecucao;
+		
 	}
 
 	public void setTotalExecucao(int totalExecucao) {

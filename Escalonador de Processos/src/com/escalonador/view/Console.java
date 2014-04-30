@@ -54,10 +54,11 @@ public class Console {
 	}
 
 	public int escolherEscalonador() {
-		System.out.println("Escolha o escalonador a ser usado: " + "1: FIFO \n"
+		System.out.println("Escolha o escalonador a ser usado: \n" + "1: FIFO \n"
 				+ "2: SJF - Menor processo primeiro \n"
 				+ "3: Prioridades - Prioridade maior executa primeiro \n"
-				+ "4: Round-Robin / Circular\n");
+				+ "4: Round-Robin / Circular\n"
+				+ "(Digite o numero)");
 		return scan.nextInt();
 	}
 

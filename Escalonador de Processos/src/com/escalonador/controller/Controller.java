@@ -38,7 +38,25 @@ public class Controller {
 	}
 
 	private void usarEscalonadorRoundRobin() {
+		ListaEncadeada<Processo> listaDeProcessos = new ListaEncadeada<Processo>();
+		quantidadeProcessos = console.lerQuantidadeProcessos();
+		for (int i = 0; i < quantidadeProcessos; i++) {
+			console.lerProcessosDoUsuario(i);
+			prioridadeProcesso = console.getPrioridadeProcesso();
+			tamanhoProcesso = console.getTamanhoProcesso();
+			listaDeProcessos.append(new Nodo<Processo>(new Processo(i,
+					tamanhoProcesso, prioridadeProcesso, 0)));
+		}
+		Nodo<Processo> nodoAtual = listaDeProcessos.getHead();
+		while (nodoAtual != listaDeProcessos.getTail()) {
+			nodoAtual.getData().resetHora();
+			nodoAtual = nodoAtual.getNext();
+		}
+		EscalonadorRoundRobin escalonadorRoundRobin = new EscalonadorRoundRobin(
+				listaDeProcessos);
+		escalonadorRoundRobin.executarFila();
 
+		
 	}
 
 	private void usarEscalonadorPrioridades() {
@@ -79,7 +97,6 @@ public class Controller {
 					tamanhoProcesso, prioridadeProcesso, 0)));
 		}
 		Nodo<Processo> nodoAtual = listaDeProcessos.getHead();
-
 		while (nodoAtual != listaDeProcessos.getTail()) {
 			nodoAtual.getData().resetHora();
 			nodoAtual = nodoAtual.getNext();
