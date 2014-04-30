@@ -13,17 +13,19 @@ public class EscalonadorGeral {
 	}
 
 	public void executarFila() {
-		Nodo<Processo> NodoProcessoExecutando = filaProcessos.getHead();
+		Nodo<Processo> nodoAtual = filaProcessos.getHead();
 		
-		while (!(NodoProcessoExecutando == filaProcessos.getTail())) {
-			processoExecutando = NodoProcessoExecutando.getData();
+		while ((filaProcessos.getTail() != null)) {
+			processoExecutando = nodoAtual.getData();
 			processoExecutando.executarProcesso();
 			while (!processoExecutando.getTerminou()) {
 				processoExecutando.executarProcesso();
 			}
-			filaProcessos.remove(NodoProcessoExecutando);
-			System.out.println("Das");
+			Nodo<Processo> nodoNext = nodoAtual.getNext();
+			filaProcessos.remove(nodoAtual);
+			nodoAtual = nodoNext;
+			
 		}
+		System.out.println(" Finalizado");
 	}
-
 }

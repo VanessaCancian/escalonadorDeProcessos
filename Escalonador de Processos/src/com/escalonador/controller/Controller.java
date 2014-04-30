@@ -11,7 +11,7 @@ public class Controller {
 	private int quantidadeProcessos = 0;
 	private int prioridadeProcesso = 0;
 	private int tamanhoProcesso = 0;
-	private EscalonadorGeral escalonador;
+	
 
 	public Controller() {
 		console = new Console();
@@ -63,7 +63,6 @@ public class Controller {
 			console.lerProcessosDoUsuario(y);
 			prioridadeProcesso = console.getPrioridadeProcesso();
 			tamanhoProcesso = console.getTamanhoProcesso();
-			System.out.println(y);
 			listaDeProcessos.append(new Nodo<Processo>(new Processo(y,
 					tamanhoProcesso, prioridadeProcesso, i)));
 		}
@@ -73,7 +72,6 @@ public class Controller {
 		ListaEncadeada<Processo> listaDeProcessos = new ListaEncadeada<Processo>();
 		quantidadeProcessos = console.lerQuantidadeProcessos();
 		for (int i = 0; i < quantidadeProcessos; i++) {
-			System.out.println(i);
 			console.lerProcessosDoUsuario(i);
 			prioridadeProcesso = console.getPrioridadeProcesso();
 			tamanhoProcesso = console.getTamanhoProcesso();
@@ -102,7 +100,7 @@ public class Controller {
 	}
 
 	public void run() {
-		escalonador.executarFila();
+		
 	}
 
 }
