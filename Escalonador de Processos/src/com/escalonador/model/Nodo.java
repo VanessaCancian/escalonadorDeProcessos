@@ -13,6 +13,8 @@ public class Nodo<T> {
 
 	/** The next. */
 	private Nodo<T> next;
+	
+	/** The prev. */
 	private Nodo<T> prev;
 
 	/**
@@ -64,10 +66,20 @@ public class Nodo<T> {
 		this.next = next;
 	}
 
+	/**
+	 * Gets the previous.
+	 *
+	 * @return the previous
+	 */
 	public Nodo<T> getPrevious() {
 		return prev;
 	}
 
+	/**
+	 * Sets the previous.
+	 *
+	 * @param prev the new previous
+	 */
 	public void setPrevious(Nodo<T> prev) {
 		this.prev = prev;
 	}

@@ -1,5 +1,6 @@
 package com.escalonador.model;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class ListaEncadeada.
  * 
@@ -22,6 +23,11 @@ public class ListaEncadeada<T> {
 		tail = null;
 	}
 
+	/**
+	 * Remove o nodo.
+	 *
+	 * @param nodo the nodo
+	 */
 	public void remove(Nodo<T> nodo) {
 		Nodo<T> ant = nodo.getPrevious();
 		Nodo<T> next = nodo.getNext();
@@ -36,7 +42,7 @@ public class ListaEncadeada<T> {
 	}
 
 	/**
-	 * Insert.
+	 * Insere o nodo.
 	 * 
 	 * @param novo
 	 *            the novo
@@ -51,7 +57,7 @@ public class ListaEncadeada<T> {
 	}
 
 	/**
-	 * Insert.
+	 * Insere o nodo entre dois outros.
 	 * 
 	 * @param novo
 	 *            the novo
@@ -74,7 +80,7 @@ public class ListaEncadeada<T> {
 	}
 
 	/**
-	 * Append.
+	 * Adiciona um nodo na lista.
 	 * 
 	 * @param novo
 	 *            the novo
@@ -90,7 +96,7 @@ public class ListaEncadeada<T> {
 	}
 
 	/**
-	 * Gets the tail.
+	 * Pega o ultimo nodo da lista.
 	 * 
 	 * @return the tail
 	 */
@@ -99,7 +105,7 @@ public class ListaEncadeada<T> {
 	}
 
 	/**
-	 * Gets the head.
+	 * Pega a ponta da lista.
 	 * 
 	 * @return the head
 	 */

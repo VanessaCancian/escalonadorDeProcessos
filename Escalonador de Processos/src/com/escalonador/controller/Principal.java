@@ -4,13 +4,16 @@
 package com.escalonador.controller;
 
 /**
- * @author daniel.fraga
+ * A Classe Principal.
  *
+ * @author daniel.fraga
  */
 public class Principal {
 
 	/**
-	 * @param args
+	 * The main method.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		Controller controller = new Controller();
