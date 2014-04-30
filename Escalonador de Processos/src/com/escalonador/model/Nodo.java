@@ -9,7 +9,7 @@ package com.escalonador.model;
 public class Nodo<T> {
 
 	/** The chave. */
-	private T chave;
+	private T data;
 
 	/** The next. */
 	private Nodo<T> next;
@@ -22,7 +22,7 @@ public class Nodo<T> {
 	 *            the i
 	 */
 	public Nodo(T i) {
-		chave = i;
+		data = i;
 		next = null;
 	}
 
@@ -31,8 +31,8 @@ public class Nodo<T> {
 	 * 
 	 * @return the chave
 	 */
-	public T getChave() {
-		return chave;
+	public T getData() {
+		return data;
 	}
 
 	/**
@@ -41,8 +41,8 @@ public class Nodo<T> {
 	 * @param chave
 	 *            the new chave
 	 */
-	public void setChave(T chave) {
-		this.chave = chave;
+	public void setData(T chave) {
+		this.data = chave;
 	}
 
 	/**
